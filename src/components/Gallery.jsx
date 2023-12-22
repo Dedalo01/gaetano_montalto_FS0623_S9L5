@@ -1,9 +1,8 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Card } from "react-bootstrap";
 import Loading from "./Loading";
+import SingleMovie from "./SingleMovie";
 
 const OMDB_Url = "http://www.omdbapi.com/";
 const OMDB_Api_Key = "d2ba067";
@@ -51,24 +50,16 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container fluid className="my-5">
         <h2 className="text-white">{this.props.title}</h2>
-        <Row>
+        <Row className="d-flex align-items-stretch">
           {this.state.isLoading && (
             <div className="text-center">
               <Loading />
             </div>
           )}
-          {this.state.movies.map((movie) => (
-            <Col key={movie.imdbID} xs={12} sm={4} md={3} lg={2}>
-              <Card className="movie-card">
-                <Card.Img variant="top" src={movie.Poster} alt={movie.Title} />
-                <Card.Body>
-                  <Card.Title>{movie.Title}</Card.Title>
-                  <Card.Text>Year of Release: {movie.Year}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+          {this.state.movies.map((movie, index) => (
+            <SingleMovie movie={movie} key={index} />
           ))}
         </Row>
       </Container>

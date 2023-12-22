@@ -146,11 +146,7 @@ h5,
 
 .card {
   transition: all 0.3s ease-out;
-  border: none !important;
-}
-
-.col {
-  background-color: black;
+  border: none;
 }
 
 .card:hover {
