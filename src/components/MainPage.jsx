@@ -19,7 +19,10 @@ class MainPage extends React.Component {
             </div>
             <div>
               <ButtonGroup role="group" aria-label="First group">
-                <Button type="button" className="bg-transparent">
+                <Button
+                  type="button"
+                  className="bg-transparent bg-outline-secondary"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

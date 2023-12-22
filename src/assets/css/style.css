@@ -152,3 +152,71 @@ h5,
 .card:hover {
   transform: scale(1.1);
 }
+
+/*
+======================
+COMMENT AREA
+======================
+*/
+
+.comment-area {
+  color: white;
+}
+
+.comment-area input {
+  text-align: center;
+  background-color: rgb(17, 17, 17);
+  padding: 0;
+  border: 2px solid red;
+}
+
+.comment-area input::placeholder {
+  color: red;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.comment-area input:focus {
+  color: red;
+  font-size: 1rem;
+  background-color: rgb(50, 50, 50);
+  padding: 0.3rem;
+  border: 3px dashed red;
+}
+
+.comment-area select {
+  background-color: rgb(17, 17, 17);
+  color: white;
+  border: 2px solid red;
+  margin-bottom: 1rem;
+}
+.comment-area select:focus {
+  background-color: rgb(17, 17, 17);
+  color: white;
+  border: 3px solid red;
+}
+
+.comment-area button {
+  margin: 0.2rem;
+  border-radius: 10px;
+}
+
+.list-group-item {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border: 2px solid red;
+}
+
+.bg-transparent {
+  border: 2px solid grey;
+}
+.bg-transparent:hover {
+  border: 2px solid rgb(61, 61, 61);
+}
+
+.avatar {
+  border: none;
+}
+.avatar:hover {
+  border: none;
+}

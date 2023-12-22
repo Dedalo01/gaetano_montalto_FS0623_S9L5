@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-import { ButtonGroup, Button, DropdownButton } from "react-bootstrap";
+import { ButtonGroup, Button } from "react-bootstrap";
 
 const NavbarCustom = () => {
   return (
@@ -79,8 +79,9 @@ const NavbarCustom = () => {
                     type="button"
                     aria-expanded="false"
                     style={{ backgroundColor: "black" }}
+                    className="bg-transparent avatar"
                   >
-                    <img src={avatar} id="avatar"></img>
+                    <img src={avatar} id="avatar" alt="avatar img"></img>
                   </Button>
 
                   {/* <Navbar.Toggle type="button" aria-controls="basic-nav-dropdown">
@@ -90,7 +91,11 @@ const NavbarCustom = () => {
                   <NavDropdown id="basic-nav-dropdown">
                     <NavDropdown.Item href="#">
                       <div className="d-flex align-items-center">
-                        <img src={avatar} id="avatar-small" />
+                        <img
+                          src={avatar}
+                          id="avatar-small"
+                          alt="avatar img small"
+                        />
                         Epicoder #1
                       </div>
                     </NavDropdown.Item>

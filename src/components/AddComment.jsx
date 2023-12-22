@@ -6,6 +6,8 @@ const Strive_Api_Key =
 
 class AddComment extends Component {
   state = {
+    comments: this.props.comments,
+    needReload: false,
     comment: {
       comment: "",
       rate: 1,
@@ -36,6 +38,7 @@ class AddComment extends Component {
             rate: 1,
             elementId: this.props.imdbID,
           },
+          needReload: true,
         });
       } else {
         console.log("error");
@@ -87,7 +90,7 @@ class AddComment extends Component {
               <option>5</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="danger" type="submit">
             Submit
           </Button>
         </Form>
