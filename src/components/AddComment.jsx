@@ -5,15 +5,16 @@ const Strive_Api_Key =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTcxZmYzNDBkOGEyMDAwMThhNDhiNDQiLCJpYXQiOjE3MDMyNDE5MjQsImV4cCI6MTcwNDQ1MTUyNH0.4uxtoW3Kb_ZdwHxgnnPUpxkI4kMIrMsEQNEFRPsijcg";
 
 class AddComment extends Component {
-  state = {
-    comments: this.props.commentsToShow,
-    needReload: false,
-    comment: {
-      comment: "",
-      rate: 1,
-      elementId: this.props.imdbID,
-    },
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      comment: {
+        comment: "",
+        rate: 1,
+        elementId: this.props.imdbID,
+      },
+    };
+  }
 
   sendComment = async (e) => {
     e.preventDefault();
@@ -50,7 +51,6 @@ class AddComment extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="my-3">
         <Form onSubmit={this.sendComment}>

@@ -134,6 +134,12 @@ input[type="checkbox"] {
   height: 36px;
 }
 
+/*
+======================
+SINGLE MOVIE
+======================
+*/
+
 .card-body {
   background-color: black;
 }
@@ -219,4 +225,8 @@ COMMENT AREA
 }
 .avatar:hover {
   border: none;
+}
+
+.loadBtn {
+  background-color: #dc3545;
 }
