@@ -10,7 +10,7 @@ function App() {
     <>
       <NavbarCustom />
       <MainPage />
-      {/* <Gallery title="Trending Now" searchMoviesOf="Harry Potter" /> */}
+
       <Footer />
     </>
   );

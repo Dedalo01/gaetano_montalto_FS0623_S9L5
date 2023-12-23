@@ -6,7 +6,7 @@ const Strive_Api_Key =
 
 class AddComment extends Component {
   state = {
-    comments: this.props.comments,
+    comments: this.props.commentsToShow,
     needReload: false,
     comment: {
       comment: "",
@@ -50,6 +50,7 @@ class AddComment extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="my-3">
         <Form onSubmit={this.sendComment}>

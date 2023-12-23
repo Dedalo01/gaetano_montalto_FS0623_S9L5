@@ -12,34 +12,43 @@ class CommentArea extends Component {
     comments: [],
     isLoading: true,
     isError: false,
+    needReload: true,
   };
 
-  getComments = async () => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" +
-          this.props.imdbID,
-        {
-          headers: {
-            Authorization: `Bearer ${Strive_Api_Key}`,
-          },
+  getComments = async (needReload) => {
+    if (needReload) {
+      try {
+        let response = await fetch(
+          "https://striveschool-api.herokuapp.com/api/comments/" +
+            this.props.imdbID,
+          {
+            headers: {
+              Authorization: `Bearer ${Strive_Api_Key}`,
+            },
+          }
+        );
+        console.log(response);
+        if (response.ok) {
+          let comments = await response.json();
+          this.setState({
+            comments: comments,
+            isLoading: false,
+            isError: false,
+            needReload: false,
+          });
+        } else {
+          console.log("error");
+          this.setState({ isLoading: false, isError: true, needReload: true });
         }
-      );
-      console.log(response);
-      if (response.ok) {
-        let comments = await response.json();
-        this.setState({ comments: comments, isLoading: false, isError: false });
-      } else {
-        console.log("error");
+      } catch (error) {
+        console.log(error);
         this.setState({ isLoading: false, isError: true });
       }
-    } catch (error) {
-      console.log(error);
-      this.setState({ isLoading: false, isError: true });
     }
   };
+
   componentDidMount = () => {
-    this.getComments();
+    this.getComments(this.state.needReload);
   };
 
   render() {
@@ -47,7 +56,11 @@ class CommentArea extends Component {
       <div className="text-center comment-area">
         {this.state.isLoading && <Loading />}
         {/*  {this.state.isError && <Error />} */}
-        <AddComment imdbID={this.props.imdbID} comments={this.state.comments} />
+        <AddComment
+          imdbID={this.props.imdbID}
+          commentsToShow={this.state.comments}
+        />
+
         <CommentList commentsToShow={this.state.comments} />
       </div>
     );

@@ -54,6 +54,7 @@ class MainPage extends React.Component {
           </div>
 
           <Gallery title="Harry Potter" searchMoviesOf="Harry Potter" />
+
           <Gallery
             title="Lord of the Rings"
             searchMoviesOf="Lord Of The Rings"
